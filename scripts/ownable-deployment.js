@@ -12,11 +12,11 @@ async function main() {
   // If this script is run directly using `node` you may want to call compile
   // manually to make sure everything is compiled
   // await hre.run('compile');
-  const [nicolas, juan] = await hre.ethers.getSigners();
+  const [sign1, sign2] = await hre.ethers.getSigners();
 
   // We get the contract to deploy
   const Ownable = await hre.ethers.getContractFactory("Ownable");
-  const ownable = await Ownable.deploy(nicolas.address);
+  const ownable = await Ownable.deploy(sign1.address);
 
   await ownable.deployed();
 
@@ -24,8 +24,8 @@ async function main() {
   const foo = await ownable.owner();
   console.log('Owner: ', foo);
 
-  await ownable.transferOwnership(juan.address);
-  console.log('New Owner: ', juan.address);
+  await ownable.transferOwnership(sign2.address);
+  console.log('New Owner: ', sign2.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere

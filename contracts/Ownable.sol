@@ -7,7 +7,7 @@ contract Ownable {
     event OwnershipTransferred(address previousOwner, address newOwner);
 
     modifier onlyOwner() {
-        require(msg.sender == owner, "No es el owner");
+        require(msg.sender == owner, "not the owner");
         _;
     }
 
