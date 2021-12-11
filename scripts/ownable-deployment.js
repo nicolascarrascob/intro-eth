@@ -23,9 +23,6 @@ async function main() {
   console.log("Ownable deployed to:", ownable.address);
   const foo = await ownable.owner();
   console.log('Owner: ', foo);
-
-  await ownable.transferOwnership(sign2.address);
-  console.log('New Owner: ', sign2.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
